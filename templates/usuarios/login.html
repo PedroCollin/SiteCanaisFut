@@ -16,7 +16,7 @@
 <div class="container" style="max-width:400px; border:solid 1px #ccc; padding:2rem; margin-top: 3rem">
     <h2 class="mt-4 mb-4">Login</h2>
     {% include 'msg.html' %}
-    <form action="{% url 'cadastrar' %}" method="post">
+    <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
 
       <div class="mb-3">

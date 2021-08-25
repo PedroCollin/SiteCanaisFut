@@ -15,7 +15,7 @@ def login(request):
     user = auth.authenticate(request,username=usuario,password=senha1)
 
     if not user:
-        messages.add_message(messages.ERROR,'Usuário ou senha inválidos')
+        messages.add_message(request, messages.ERROR,'Usuário ou senha inválidos')
         return render(request, 'usuarios/login.html')
     else:
         auth.login(request,user)
@@ -71,7 +71,7 @@ def cadastrar(request):
         password=senha1
     )
     messages.add_message(request,messages.SUCCESS, 'Cadastrado com sucesso!')
-    User.save(request,user)
+    user.save()
     return redirect('login')
 @login_required(redirect_field_name='login')
 def dashboard(request):
